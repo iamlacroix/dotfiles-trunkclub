@@ -1,3 +1,5 @@
+alias vim='/usr/local/bin/vim'
+
 if test -e ~/.asdf/asdf.fish
   source ~/.asdf/asdf.fish
 end

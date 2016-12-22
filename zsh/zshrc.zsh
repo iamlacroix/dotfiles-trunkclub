@@ -36,3 +36,5 @@ export PATH="/usr/local/sbin:$PATH"
 
 # Docker
 # eval $(docker-machine env)
+
+fish

@@ -4,11 +4,15 @@ skip_global_compinit=1
 export NODE_REPL_HISTORY_FILE="$HOME/.node_repl_history"
 
 # vim
-alias vim='/usr/local/bin/vim'
+alias vim='/usr/local/bin/nvim'
 
 # Set editors
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
+
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools

@@ -1,0 +1,16 @@
+" Themes
+Plug 'joshdick/onedark.vim'
+Plug 'tomasr/molokai'
+
+" Languages
+Plug 'pangloss/vim-javascript'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-git'
+
+" Productivity
+
+Plug 'yegappan/mru'
+Plug 'simnalamburt/vim-mundo'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'terryma/vim-expand-region'
+Plug 'terryma/vim-multiple-cursors'

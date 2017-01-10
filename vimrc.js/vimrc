@@ -1,0 +1,68 @@
+set encoding=utf-8
+let mapleader=" "
+filetype on
+
+syntax enable
+set background=dark
+colorscheme onedark
+
+" Plugin options
+
+let g:javascript_plugin_flow = 1
+let g:onedark_terminal_italics = 1
+
+" Key bindings
+
+" Save
+map <leader>ww :w<CR>
+" Quit
+map <leader>qq :q<CR>
+" Find files
+map <leader>t :FZF<CR>
+" Select all (command prefix)
+map <leader>a :%
+" Open recent files list
+map <leader>e :MRU<CR>
+" Open a file
+map <leader>o :e<SPACE>
+map <leader>O :e <C-R>=expand("%:h") . "/" <CR>
+" Duplicate a line
+map <leader>d :t.<CR>
+" Move a line up or down
+map <leader>m :m+1<CR>
+map <leader>M :m-2<CR>
+" Switch between the two most recent files
+map <leader><SPACE> :e #<CR>
+
+map <leader>u :MundoToggle<CR>
+map <leader>\ :NERDTreeToggle<CR>
+map <leader>ii :PlugInstall<CR>
+map <leader>rr :so $MYVIMRC<CR>
+
+" Highlight regions
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" Integrate system clipboard
+set clipboard+=unnamedplus
+
+" Tabs
+" - Two spaces wide
+set tabstop=2
+set softtabstop=2
+" - Expand them all
+set expandtab
+" - Indent by 2 spaces by default
+set shiftwidth=2
+set showtabline=0
+
+" Highlight cursor position
+set cursorline
+set cursorcolumn
+
+" Undo
+set undofile
+set undodir=~/.vim/undo
+
+" Syntax
+autocmd BufNewFile,BufRead *.es6   set syntax=javascript

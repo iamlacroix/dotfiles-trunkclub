@@ -196,7 +196,7 @@ values."
    dotspacemacs-display-default-layout nil
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-resume-layouts t
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
@@ -308,6 +308,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (setq exec-path-from-shell-check-startup-files nil)
   (setq-default
     js2-mode-show-strict-warnings nil
     )
@@ -323,32 +324,17 @@ you should place your code here."
   (setq-default
     indent-tabs-mode nil
     tab-width 2
-    ; standard-indent 2
-    ; default-tab-width 2
     js-indent-level 2
     js2-basic-offset 2
     line-spacing 5
     crosshairs-mode t
-    ; powerline-default-separator 'nil
-    ; powerline-default-separator 'rounded
-    ; powerline-default-separator 'curve
-    ; powerline-default-separator 'slant
     powerline-default-separator 'bar
-    ; powerline-height (spacemacs/compute-powerline-height)
-    ; powerline-height 150
     )
-  ; (setq powerline-height 150)
   (spaceline-spacemacs-theme)
-  ; (spaceline-emacs-theme)
   (setq spaceline-separator-dir-left '(left . left))
   (setq spaceline-separator-dir-right '(right . right))
-  ; (spaceline-emacs-theme)
-  ; (setq powerline-height 80)
-  ; (powerline-reset)
   (set-face-attribute 'mode-line nil :box nil)
   (setq ns-use-srgb-colorspace nil) ;; Normalizes the colors in the modeline
-  ; (when (display-graphic-p)
-  ;   (set-face-attribute 'default nil :font "Source Code Pro"))
   (set-face-background 'col-highlight "#212324")
   (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
@@ -364,11 +350,6 @@ you should place your code here."
       (when (and eslint (file-executable-p eslint))
         (setq-local flycheck-javascript-eslint-executable eslint))))
   (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
-  ; (spaceline-spacemacs-theme)
-  ; (spaceline-compile)
-  ;; (setq ivy-re-builders-alist
-  ;;       '((ivy-switch-buffer . ivy--regex-plus)
-  ;;         (t . ivy--regex-fuzzy)))
   ;; (setq ivy-re-builders-alist
   ;;       '((t . ivy--regex-fuzzy)))
   )

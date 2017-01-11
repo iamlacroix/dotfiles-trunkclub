@@ -127,7 +127,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner nil
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
    ;; Possible values for list-type are:
@@ -245,7 +245,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup t
+   dotspacemacs-maximized-at-startup nil
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -326,9 +326,14 @@ you should place your code here."
     tab-width 2
     js-indent-level 2
     js2-basic-offset 2
+    web-mode-markup-indent-offset 2
+    web-mode-code-indent-offset 2
     line-spacing 5
     crosshairs-mode t
     powerline-default-separator 'bar
+    ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Choosing-Window-Options.html
+    ;; pop-up-frames t
+    flycheck-global-modes '(rjsx-mode json-mode js2-mode coffee-mode web-mode slim-mode scss-mode sass-mode pug-mode less-mode haml-mode yaml-mode enh-ruby-mode ruby-mode sh-mode)
     )
   (spaceline-spacemacs-theme)
   (setq spaceline-separator-dir-left '(left . left))
@@ -350,6 +355,7 @@ you should place your code here."
       (when (and eslint (file-executable-p eslint))
         (setq-local flycheck-javascript-eslint-executable eslint))))
   (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
+  (add-hook 'after-init-hook #'global-flycheck-mode)
   ;; (setq ivy-re-builders-alist
   ;;       '((t . ivy--regex-fuzzy)))
   )

@@ -39,7 +39,6 @@ values."
      ruby
      ivy
      auto-completion
-     ;; better-defaults
      emacs-lisp
      git
      github
@@ -57,7 +56,9 @@ values."
      (osx :variables
           osx-use-option-as-meta t)
      shell-scripts
-     spell-checking
+     (spell-checking :variables
+                     spell-checking-enable-by-default nil
+                     spell-checking-enable-auto-dictionary t)
      syntax-checking
      version-control
      themes-megapack
@@ -364,6 +365,7 @@ you should place your code here."
   (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . react-mode))
   (add-to-list 'auto-mode-alist '("\\.es6\\'" . react-mode))
+  (setq deft-extensions '("org" "md" "txt" "http"))
   ;; Find local eslint binary for Flycheck
   (defun my/use-eslint-from-node-modules ()
     (let* ((root (locate-dominating-file

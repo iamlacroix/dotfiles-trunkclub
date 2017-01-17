@@ -34,6 +34,9 @@ values."
      javascript
      react
      html
+     elixir
+     erlang
+     go
      yaml
      emacs-lisp
      ruby
@@ -333,6 +336,7 @@ you should place your code here."
     tab-width 2
     js-indent-level 2
     js2-basic-offset 2
+    css-indent-offset 2
     web-mode-markup-indent-offset 2
     web-mode-code-indent-offset 2
     line-spacing 7

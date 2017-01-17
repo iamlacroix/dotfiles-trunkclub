@@ -323,6 +323,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
     )
   )
 
+(defun simulate-key-press (key)
+  "Return a command that pretends KEY was presssed.
+KEY must be given in `kbd' notation."
+  `(lambda () (interactive)
+     (setq prefix-arg current-prefix-arg)
+     (setq unread-command-events (listify-key-sequence (read-kbd-macro ,key)))))
+
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
@@ -380,6 +387,7 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " fK")) 'bm-previous)
   (define-key evil-normal-state-map (kbd "C-j") 'drag-stuff-down)
   (define-key evil-normal-state-map (kbd "C-k") 'drag-stuff-up)
+  (define-key evil-normal-state-map (kbd "M-d") (simulate-key-press "\" _ d"))
   (eval-after-load "magit"
     '(progn
        (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " gB")) 'magit-blame)))

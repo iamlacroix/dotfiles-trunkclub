@@ -380,11 +380,10 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " fJ")) 'bm-next)
   (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " fK")) 'bm-previous)
   (define-key evil-normal-state-map (kbd "C-j") 'drag-stuff-down)
-  (define-key evil-normal-state-map (kbd "C-j") 'drag-stuff-down)
+  (define-key evil-normal-state-map (kbd "C-k") 'drag-stuff-up)
   (eval-after-load "magit"
     '(progn
        (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " gB")) 'magit-blame)))
-  ;; (define-key evil-normal-state-map (kbd "C-j") 'drag-stuff-down)
   ;; Find local eslint binary for Flycheck
   (defun my/use-eslint-from-node-modules ()
     (let* ((root (locate-dominating-file

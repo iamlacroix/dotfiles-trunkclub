@@ -340,7 +340,6 @@ you should place your code here."
     web-mode-markup-indent-offset 2
     web-mode-code-indent-offset 2
     line-spacing 7
-    crosshairs-mode t
     powerline-default-separator 'bar
     deft-directory "~/Google Drive/Notes"
     ;; sunshine-location "60622,USA"

@@ -50,7 +50,8 @@ values."
      org
      dash
      (deft :variables
-            deft-recursive t)
+       deft-recursive t
+       deft-auto-save-interval 60.0)
      restclient
      prodigy
      (shell :variables

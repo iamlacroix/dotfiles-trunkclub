@@ -1,4 +1,5 @@
 alias vim='/usr/local/bin/nvim'
+alias emacs='emacsclient -t'
 
 set -x EDITOR nvim
 

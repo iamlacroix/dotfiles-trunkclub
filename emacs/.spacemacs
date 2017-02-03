@@ -2,8 +2,6 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
-(load-file "~/.emacs.d/flow-for-emacs/flow.el")
-
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -97,10 +95,10 @@ values."
    ;; them if they become unused. `all' installs *all* packages supported by
    ;; Spacemacs and never uninstall them. (default is `used-only')
    dotspacemacs-install-packages 'used-only))
-
 (defun dotspacemacs/init ()
   "Initialization function.
 This function is called at the very startup of Spacemacs initialization
+
 before layers configuration.
 You should not put any user code in there besides modifying the variable
 values."
@@ -390,6 +388,8 @@ you should place your code here."
         "%b")))
   (when (display-graphic-p)
     (setq frame-title-format '((:eval (my/frame-title-format)))))
+  (when (not (display-graphic-p))
+    (menu-bar-mode -1))
   ;; Set modes for extensions
   (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . react-mode))
@@ -397,12 +397,15 @@ you should place your code here."
   (add-to-list 'auto-mode-alist '("\\.dev\\'" . nginx-mode))
   ;; Keybindings
   (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " fn")) 'open-junk-file)
-  (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " fb")) 'bm-toggle)
-  (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " fJ")) 'bm-next)
-  (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " fK")) 'bm-previous)
+  (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " fmm")) 'bm-toggle)
+  (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " fmj")) 'bm-next)
+  (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " fmk")) 'bm-previous)
+  (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " fma")) 'bm-show-all)
+  (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " fmg")) 'bm-show-goto-bookmark)
   (define-key evil-normal-state-map (kbd "C-j") 'drag-stuff-down)
   (define-key evil-normal-state-map (kbd "C-k") 'drag-stuff-up)
   (define-key evil-normal-state-map (kbd "M-d") (simulate-key-press "\" _ d"))
+  (define-key evil-insert-state-map (kbd "M-p") (simulate-key-press "\C-r 0"))
   (eval-after-load "magit"
     '(progn
        (define-key evil-normal-state-map (kbd (concat dotspacemacs-leader-key " gB")) 'magit-blame)))

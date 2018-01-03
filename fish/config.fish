@@ -1,5 +1,6 @@
 alias vim='/usr/local/bin/nvim'
 alias emacs='emacsclient -t'
+alias cat='ccat'
 
 set -x EDITOR nvim
 
@@ -12,7 +13,8 @@ function uuid
 end
 
 function reload
-  echo "Reloading shell with: fzf_key_bindings"
+  # echo "Reloading shell with: fzf_key_bindings"
+  source ~/.config/fish/config.fish
   fzf_key_bindings
 end
 
@@ -32,4 +34,8 @@ end
 
 function dockerbash
   docker exec -i -t $1 bash
+end
+
+function gv
+  cat $argv | grep version
 end

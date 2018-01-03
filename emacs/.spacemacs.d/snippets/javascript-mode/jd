@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Jest describe()
+# key: jd
+# --
+describe('$1', () => {
+  $0
+})
